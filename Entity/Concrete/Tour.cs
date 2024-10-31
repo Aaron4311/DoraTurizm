@@ -11,6 +11,7 @@ namespace Entity.Concrete
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string TourUrl { get; set; }
         public string DepartureDate { get; set; }
         public string DepartureAndDestinationCity { get; set; }
         public string? IntermediatePassageDate { get; set; }
