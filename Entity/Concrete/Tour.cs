@@ -20,6 +20,6 @@ namespace Entity.Concrete
         public string Hotel { get; set; }
         public string Time { get; set; }
         public string Price { get; set; }
-        public byte[][] Images { get; set; }
+        public string[] ImageUrls { get; set; }
     }
 }
