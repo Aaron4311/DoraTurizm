@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.Validation.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Сoncrete;
 using Core.Utilities.Results.Abstract;
@@ -22,6 +23,7 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
+        [ValidationAspect(typeof(UserValidator))]
         public async Task<IResult> AddAsync(User user)
         {
             await _userDal.AddAsync(user);

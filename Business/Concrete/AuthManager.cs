@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.Validation.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Сoncrete;
 using Core.Utilities.Results.Abstract;
@@ -33,6 +34,7 @@ namespace Business.Concrete
             return new SuccessDataResult<AccessToken>(accessToken, Messages.accessTokenCreated);
         }
 
+        [ValidationAspect(typeof(UserForLoginDtoValidator))]
         public async Task<IDataResult<User>> LoginAsync(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByMailAsync(userForLoginDto.Email).Result;
@@ -48,6 +50,7 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(userToCheck.Data, Messages.loginSuccessful);
         }
 
+        [ValidationAspect(typeof(UserForRegisterDtoValidator))]
 
         public async Task<IDataResult<User>> RegisterAsync(UserForRegisterDto userForRegisterDto, string password)
         {
