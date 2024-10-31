@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
 {
     public interface ITourDal : IEntityRepository<Tour>
     {
+        Task<Tour> GetByUrl(string tourUrl);
     }
 }
