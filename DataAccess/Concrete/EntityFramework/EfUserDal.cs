@@ -2,6 +2,7 @@
 using Core.Entities.Сoncrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfUserDal : EfEntityBaseRepository<User, DoraTurizmDbContext>, IUserDal
     {
-        public List<OperationClaim> GetClaims(User user)
+        public async Task<List<OperationClaim>> GetClaimsAsync(User user)
         {
             using (var context = new DoraTurizmDbContext())
             {
@@ -24,7 +25,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  Id = operationClaim.Id,
                                  Name = operationClaim.Name,
                              };
-                return result.ToList();
+                return await result.ToListAsync();
             }
         }
     }

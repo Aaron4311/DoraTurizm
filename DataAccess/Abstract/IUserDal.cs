@@ -9,7 +9,7 @@ namespace DataAccess.Abstract
 {
     public interface IUserDal
     {
-        List<OperationClaim> GetClaims(User user);
+        Task<List<OperationClaim>> GetClaimsAsync(User user);
 
     }
 }
