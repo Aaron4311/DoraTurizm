@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /DataAccess/Concrete/EntityFramework/Context/DoraTurizmDbContext.cs
 /WebAPI/appsettings.json
+/WebUI/appsettings.json
