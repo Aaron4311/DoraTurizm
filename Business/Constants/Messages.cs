@@ -28,6 +28,15 @@ namespace Business.Constants
         public static string loginSuccessful = "Login is successful";
         public static string accessTokenCreated = "Access token is created";
         public static string authorizationDenied = "Authorization is denied";
+
+        #endregion
+
+        #region Message Messages
+        public static string messageIsAdded = "Message is Added";
+        public static string messageIsDeleted = "Message is Deleted";
+        public static string messagesAreListed = "Messages are Listed";
+        public static string messageIsListed = "Message is Listed";
+        public static string messageIsUpdated = "Message is Updated";
         #endregion
     }
 }
