@@ -4,6 +4,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DoraTurizm ile huzurlu ve güvenli hac ve umre turları! İbadetinizi gönül rahatlığıyla yerine getirin. Hac ve umre için profesyonel rehberlik hizmeti, uygun fiyatlar ve özel programlar DoraTurizm’de sizi bekliyor.">
+    <meta name="keywords" content="DoraTurizm, hac, umre, hac ve umre turları, kutsal topraklar, Mekke, Medine, dini turizm, uygun hac paketleri, umre seyahat, hac rehberi, umre rehberi">
+    <meta name="author" content="Ajanscode, Harun Karagöz">
 
     <!-- Bootstrap CSS -->
     <link href="~/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -35,67 +38,71 @@
     <!-- Title -->
     <title>Dora Tours Hac - Umre</title>
     <link rel="icon" href="~/assets/img/sm-logo.svg" type="image/gif" sizes="20x20">
+
+    <!-- Alertify -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <link href="~/assets/css/alertify.min.css">
+    <link href="~/assets/css/alertify.rtl.min.css">
+
 </head>
-<body>
+    <body>
+            <partial name="_Navbar.cshtml">
+            @RenderBody()
+            <partial name="_Footer.cshtml">
+            <!--  Main jQuery  -->
+            <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+            <script src="~/assets/js/jquery-3.7.1.min.js"></script>
+            <script src="~/assets/js/jquery-ui.js"></script>
+            <script src="~/assets/js/moment.min.js"></script>
+            <script src="~/assets/js/daterangepicker.min.js"></script>
+            <!-- Popper and Bootstrap JS -->
+            <script src="~/assets/js/bootstrap.min.js"></script>
+            <script src="~/assets/js/popper.min.js"></script>
+            <!-- Swiper slider JS -->
+            <script src="~/assets/js/swiper-bundle.min.js"></script>
+            <script src="~/assets/js/slick.js"></script>
+            <!-- Waypoints JS -->
+            <script src="~/assets/js/waypoints.min.js"></script>
+            <!-- Counterup JS -->
+            <script src="~/assets/js/jquery.counterup.min.js"></script>
+            <!-- Isotope  JS -->
+            <script src="~/assets/js/isotope.pkgd.min.js"></script>
+            <!-- Magnific-popup  JS -->
+            <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
+            <!-- Marquee  JS -->
+            <script src="~/assets/js/jquery.marquee.min.js"></script>
+            <!-- Select2  JS -->
+            <script src="~/assets/js/jquery.nice-select.min.js"></script>
+            <!-- Select2  JS -->
+            <script src="~/assets/js/select2.min.js"></script>
 
-    <partial name="_Navbar.cshtml">
-    @RenderBody()
-    <partial name="_Footer.cshtml">
+            <script src="~/assets/js/jquery.fancybox.min.js"></script>
+            <!-- Custom JS -->
+            <script src="~/assets/js/custom.js"></script>
 
-
-    <!--  Main jQuery  -->
-    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="~/assets/js/jquery-3.7.1.min.js"></script>
-    <script src="~/assets/js/jquery-ui.js"></script>
-    <script src="~/assets/js/moment.min.js"></script>
-    <script src="~/assets/js/daterangepicker.min.js"></script>
-    <!-- Popper and Bootstrap JS -->
-    <script src="~/assets/js/bootstrap.min.js"></script>
-    <script src="~/assets/js/popper.min.js"></script>
-    <!-- Swiper slider JS -->
-    <script src="~/assets/js/swiper-bundle.min.js"></script>
-    <script src="~/assets/js/slick.js"></script>
-    <!-- Waypoints JS -->
-    <script src="~/assets/js/waypoints.min.js"></script>
-    <!-- Counterup JS -->
-    <script src="~/assets/js/jquery.counterup.min.js"></script>
-    <!-- Isotope  JS -->
-    <script src="~/assets/js/isotope.pkgd.min.js"></script>
-    <!-- Magnific-popup  JS -->
-    <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
-    <!-- Marquee  JS -->
-    <script src="~/assets/js/jquery.marquee.min.js"></script>
-    <!-- Select2  JS -->
-    <script src="~/assets/js/jquery.nice-select.min.js"></script>
-    <!-- Select2  JS -->
-    <script src="~/assets/js/select2.min.js"></script>
-
-    <script src="~/assets/js/jquery.fancybox.min.js"></script>
-    <!-- Custom JS -->
-    <script src="~/assets/js/custom.js"></script>
-    <script>
-        $(".marquee_text").marquee({
-            direction: "left",
-            duration: 25000,
-            gap: 50,
-            delayBeforeStart: 0,
-            duplicated: true,
-            startVisible: true,
-        });
-        $(".marquee_text2").marquee({
-            direction: "left",
-            duration: 25000,
-            gap: 50,
-            delayBeforeStart: 0,
-            duplicated: true,
-            startVisible: true,
-        });
-    </script>
-
-
-    <a href="https://wa.me/905437289920" class="whatsapp-btn" target="_blank">
-        <img src="~/assets/img/wbwhatsapp1.png" alt="WhatsApp">
-    </a>
-
-</body>
+            <!-- Alertify -->
+            <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+            <script src="~/assets/js/alertify.min.js"></script>
+            <script>
+                $(".marquee_text").marquee({
+                    direction: "left",
+                    duration: 25000,
+                    gap: 50,
+                    delayBeforeStart: 0,
+                    duplicated: true,
+                    startVisible: true,
+                });
+                $(".marquee_text2").marquee({
+                    direction: "left",
+                    duration: 25000,
+                    gap: 50,
+                    delayBeforeStart: 0,
+                    duplicated: true,
+                    startVisible: true,
+                });
+            </script>
+            <a href="https://wa.me/905437289920" class="whatsapp-btn" target="_blank">
+                <img src="~/assets/img/wbwhatsapp1.png" alt="WhatsApp">
+            </a>
+    </body>
 </html>
