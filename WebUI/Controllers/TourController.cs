@@ -20,5 +20,16 @@ namespace WebUI.Controllers
         {
             return View();
         }
+
+        [HttpGet("Pilgrimage1")]
+        public async Task<IActionResult> Pilgrimage1()
+        {
+            return View();
+        }
+        [HttpGet("Pilgrimage2")]
+        public async Task<IActionResult> Pilgrimage2()
+        {
+            return View();
+        }
     }
 }
