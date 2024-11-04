@@ -28,6 +28,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfTourDal>().As<ITourDal>().SingleInstance();
             builder.RegisterType<TourManager>().As<ITourService>().SingleInstance();
 
+            builder.RegisterType<EfMessageDal>().As<IMessageDal>().SingleInstance();
+            builder.RegisterType<MessageManager>().As<IMessageService>().SingleInstance();
 
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
 
