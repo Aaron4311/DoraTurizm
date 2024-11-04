@@ -576,7 +576,7 @@ ul{
     background-color:var(--primary-color1);
     font-family:var(--font-rubik);
     font-weight:500;
-    font-size:14px;
+    font-size:11px;
     color:var(--white-color);
     letter-spacing:.48px;
     text-transform:capitalize;
@@ -25657,7 +25657,7 @@ header.style-3.four .nav-right .icon-list li:first-child svg{
     align-items:center;
     gap:8px;
     padding-right:40px;
-    font-size:16px;
+    font-size:15px;
     font-weight:500;
     color:var(--title-color);
     font-family:var(--font-rubik)
