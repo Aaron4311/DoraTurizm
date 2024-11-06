@@ -19,19 +19,15 @@ namespace WebAPI.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> LoginAsync(UserForLoginDto userForLoginDto)
         {
-            var userToLogin = await _authService.LoginAsync(userForLoginDto);
-            if (!userToLogin.IsSuccess)
+            var loginResult = await _authService.LoginAsync(userForLoginDto);
+            if (!loginResult.IsSuccess)
             {
-                return BadRequest(userToLogin.Message);
+                return BadRequest(loginResult.Message);
             }
-            var token = await _authService.CreateAccessTokenAsync(userToLogin.Data);
-            if (!token.IsSuccess)
-            {
-                return BadRequest(token.Message);
-            }
-            return Ok(token.Data);
 
+            return Ok(loginResult.Data);
         }
+
 
         [HttpPost("Register")]
         public async Task<IActionResult> RegisterAsync(UserForRegisterDto userForRegisterDto)
@@ -49,5 +45,18 @@ namespace WebAPI.Controllers
             }
             return Ok(token.Data);
         }
+
+
+        [HttpPost("RefreshToken")]
+        public async Task<IActionResult> RefreshTokenAsync(string refreshToken)
+        {
+            var token = await _authService.RenewAccessTokenAsync(refreshToken);
+            if (!token.IsSuccess)
+            {
+                return BadRequest(token.Message);
+            }
+            return Ok(token.Data);
+        }
+
     }
 }
