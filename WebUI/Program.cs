@@ -61,6 +61,18 @@ builder.Services.AddAuthentication(options =>
 
 #endregion
 
+#region Cors Policy Configuration
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
+#endregion
 
 builder.Services.Configure<ApiSettings>(builder.Configuration.GetSection("ApiSettings"));
 builder.Services.AddSession();
@@ -79,6 +91,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseCors("AllowAllOrigins");
 app.UseSession();
 app.UseMiddleware<JwtMiddleware>();
 
