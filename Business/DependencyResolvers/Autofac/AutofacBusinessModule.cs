@@ -31,6 +31,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfMessageDal>().As<IMessageDal>().SingleInstance();
             builder.RegisterType<MessageManager>().As<IMessageService>().SingleInstance();
 
+            builder.RegisterType<EfRefreshTokenDal>().As<IRefreshTokenDal>().SingleInstance();
+
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
 
             builder.RegisterType<JwtHelper>().As<ITokenHelper>().SingleInstance();
