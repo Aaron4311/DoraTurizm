@@ -15,7 +15,6 @@
             if (!string.IsNullOrEmpty(token))
             {
                 context.Request.Headers.Add("Authorization", $"Bearer {token}");
-                var y = context.Request.Headers;
             }
             await _next(context);
         }
