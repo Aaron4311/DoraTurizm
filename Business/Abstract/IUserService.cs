@@ -13,5 +13,6 @@ namespace Business.Abstract
         Task<List<OperationClaim>> GetClaimsAsync(User user);
         Task<IResult> AddAsync(User user);
         Task<IDataResult<User>> GetByMailAsync(string mail);
+        Task<IDataResult<User>> GetByIdAsync(int id);
     }
 }

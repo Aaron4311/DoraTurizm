@@ -35,6 +35,11 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(await _userDal.GetAsync(x => x.Email == mail));
         }
 
+        public async Task<IDataResult<User>> GetByIdAsync(int id)
+        {
+            return new SuccessDataResult<User>(await _userDal.GetAsync(x => x.Id == id));
+        }
+
         public async Task<List<OperationClaim>> GetClaimsAsync(User user)
         {
             return await _userDal.GetClaimsAsync(user);

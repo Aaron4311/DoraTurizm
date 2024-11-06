@@ -1,3 +1,4 @@
+using Core.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,5 +39,11 @@ namespace Business.Constants
         public static string messageIsListed = "Message is Listed";
         public static string messageIsUpdated = "Message is Updated";
         #endregion
+
+        #region Refresh Token
+        public static string invalidRefreshToken = "Refresh Token Is Invalid Or Expired";
+        internal static string accessTokenRenewed = "Access Token Renewed Successfuly";
+        #endregion
+
     }
 }
