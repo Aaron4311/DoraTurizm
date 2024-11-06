@@ -61,5 +61,9 @@ namespace Core.Utilities.Security.JWT
             claims.AddRoles(operationClaims.Select(c => c.Name).ToArray());
             return claims;
         }
+        public string GenerateRefreshToken()
+        {
+            return RefreshTokenHelper.GenerateRefreshToken();
+        }
     }
 }
