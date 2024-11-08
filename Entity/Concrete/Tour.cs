@@ -9,18 +9,22 @@ namespace Entity.Concrete
 {
     public class Tour : IEntity
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string TourUrl { get; set; }
-        public string DepartureDate { get; set; }
-        public string DepartureAndDestinationCity { get; set; }
-        public string? IntermediatePassageDate { get; set; }
-        public string? IntermediatePassageCity { get; set; }
-        public string ReturningDate { get; set; }
-        public string ReturningDepartureAndDestinationCity { get; set; }
-        public string Hotel { get; set; }
-        public string Time { get; set; }
-        public string Price { get; set; }
-        public string[] ImageUrls { get; set; }
+        public int Id { get; set; } //1
+        public string Name { get; set; } //2025 Hac Programý - Rayhaan
+        public string TourUrl { get; set; } //rayhan-hac
+        public string DepartureDate { get; set; } //31 mayýs
+        public string DepartureCity { get; set; } //Ýstanbul 
+        public string DestinationCity { get; set; } //Cidde
+        public string? IntermediatePassageDate { get; set; } //11 Haziran
+        public string? IntermediatePassageFirstCity { get; set; } //Mekke
+        public string? IntermediatePassageSecondCity { get; set; } //Medine
+        public string ReturningDate { get; set; } //13 Haziran
+        public string ReturningDepartureCity { get; set; } //Medine
+        public string ReturningDestinationCity { get; set; } //Ýstanbul
+        public string FirstHotel { get; set; } // Reyhan Rotana
+        public string SecondHotel { get; set; } // Dar al Taqwa
+        public decimal PriceForTwoRoom { get; set; } //18500$
+        public decimal PriceForThreeRoom { get; set; } //18000$
+
     }
 }
