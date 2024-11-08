@@ -15,6 +15,8 @@ namespace WebUI.DependencyResolvers.Autofac
 
             builder.RegisterType<MessageManager>().As<IMessageService>().SingleInstance();
 
+            builder.RegisterType<TourManager>().As<ITourService>().SingleInstance();
+
         }
     }
 }
