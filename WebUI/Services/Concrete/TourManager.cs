@@ -17,19 +17,19 @@ namespace WebUI.Services.Concrete
             _baseApiUrl = baseApiUrl.Value.BaseApiUrl + "/Tour";
         }
 
-        public async Task<List<TourResponseDto>> GetAll()
+        public async Task<List<TourResponseDto>> GetAllAsync()
         {
             var request = await _httpClient.GetAsync($"{_baseApiUrl}/GetAll");
             if (request.IsSuccessStatusCode)
             {
                 var result = await request.Content.ReadAsStringAsync();
                 var json = JsonConvert.DeserializeObject<List<TourResponseDto>>(result);
-                return json;
+                return json.OrderByDescending(x => x.Id).ToList();
             }
             return null;
         }
 
-        public async Task<TourResponseDto> GetByUrl(string url)
+        public async Task<TourResponseDto> GetByUrlAsync(string url)
         {
             var request = await _httpClient.GetAsync($"{_baseApiUrl}/GetByUrl/{url}");
             if (request.IsSuccessStatusCode)
@@ -41,7 +41,7 @@ namespace WebUI.Services.Concrete
             return null;
         }
 
-        public async Task<bool> UpdateTour(TourResponseDto tourResponseDto)
+        public async Task<bool> UpdateTourAsync(TourResponseDto tourResponseDto)
         {
             var result = await _httpClient.PutAsJsonAsync($"{_baseApiUrl}/Update", tourResponseDto);
             if (result.IsSuccessStatusCode)

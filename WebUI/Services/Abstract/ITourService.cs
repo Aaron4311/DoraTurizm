@@ -4,8 +4,8 @@ namespace WebUI.Services.Abstract
 {
     public interface ITourService
     {
-        Task<List<TourResponseDto>> GetAll();
-        Task<TourResponseDto> GetByUrl(string url);
-        Task<bool> UpdateTour(TourResponseDto tourResponseDto);
+        Task<List<TourResponseDto>> GetAllAsync();
+        Task<TourResponseDto> GetByUrlAsync(string url);
+        Task<bool> UpdateTourAsync(TourResponseDto tourResponseDto);
     }
 }
