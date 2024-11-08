@@ -1,19 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebUI.Services.Abstract;
 
 namespace WebUI.Controllers
 {
     public class TourController : Controller
     {
+        private readonly ITourService _tourService;
+
+        public TourController(ITourService tourService)
+        {
+            _tourService = tourService;
+        }
+
         [HttpGet("turlar")]
         public async Task<IActionResult> Index()
         {
-            return View();
+            var tours = await _tourService.GetAllAsync();
+            return View(tours);
         }
 
         [HttpGet("hac")]
         public async Task<IActionResult> Pilgrimage()
         {
-            return View();
+            var tours = await _tourService.GetAllAsync();
+            return View(tours);
         }
         [HttpGet("umre")]
         public async Task<IActionResult> Umrah()

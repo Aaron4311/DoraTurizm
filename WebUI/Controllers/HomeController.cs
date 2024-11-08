@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebUI.Models;
+using WebUI.Services.Abstract;
 
 
 namespace WebUI.Controllers
@@ -8,15 +9,17 @@ namespace WebUI.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ITourService _tourService;
+        public HomeController(ILogger<HomeController> logger, ITourService tourService)
         {
             _logger = logger;
-          
+            _tourService = tourService;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View();
+            var tours = await _tourService.GetAllAsync();
+            return View(tours);
         }
 
         public IActionResult Privacy()
