@@ -1,0 +1,118 @@
+﻿@* @using WebUI.Models *@
+@* @model List<MessageResponseDto>
+ *@
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12 text-end pr-5">
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col d-flex align-items-center">
+                                <h5 class="card-title">Mesajlar</h5>
+                            </div>
+
+
+                        </div>
+                        <div class="table-responsive">
+                            <table id="zero_config"
+                                   class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width:250px">İsim / Soyisim</th>
+                                        <th style="width:250px">Telefon</th>
+                                        <th style="width:250px">Email</th>
+
+                                        <th style="width:1089;word-wrap:break-word;word-break:break-all;" class="text-center word-break">Mesaj</th>
+                                    </tr>
+
+                                    <tbody id="MessageTable">
+                                    </tbody>
+
+                                    @* @foreach (var message in Model)
+                                    {
+                                        <tr>
+                                            <td>@message.Name</td>
+                                            <td>@message.PhoneNumber</td>
+                                            <td>@message.Email</td>
+                                            <td style="width:1089;word-wrap:break-word;">@message.MessageContent</td>
+
+                                        </tr>
+                                    } *@
+                                </thead>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+
+<script>
+    function loadMessages() {
+        fetch('/GetMessages') 
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ağ yanıtı hatalı: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(message => {
+                const tableBody = document.getElementById("MessageTable");
+                tableBody.innerHTML = '';
+                message.forEach(x => {
+                    const row = `
+                            <tr>
+                                <td>${x.name}</td>
+                                <td>${x.phoneNumber}</td>
+                                <td>${x.email}</td>
+                                <td style="width:1089px; word-wrap:break-word;">${x.messageContent}</td>
+                            </tr>`;
+                    tableBody.insertAdjacentHTML('beforeend', row);
+                });
+            })
+            .catch(error => {
+                console.log("Bir hata oluştu", error);
+            });
+    }
+    document.addEventListener("DOMContentLoaded", loadMessages);
+</script>

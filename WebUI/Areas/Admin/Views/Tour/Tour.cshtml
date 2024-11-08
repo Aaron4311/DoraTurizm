@@ -1,0 +1,179 @@
+﻿@using WebUI.Models
+ @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model TourResponseDto
+@{
+    ViewData["Title"] = "Tour";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+
+<div class="container d-flex justify-content-end">
+    <div class="row w-75">
+
+
+
+
+
+        <div class="breadcrumb-section"
+             style="background-image: linear-gradient(270deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0.3) 101.02%), url(/assets/img/innerpage/inner-banner-bg.png);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <div class="banner-content">
+                            <h1>Hac Turları</h1>
+                            <ul class="breadcrumb-list">
+                                <li><a href="/Admin/Tours">Anasayfa</a></li>
+                                <li>Hac Turu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Room Details section -->
+        <div class="package-details-area pt-120 position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="co-lg-12">
+                        <div class="package-img-group mb-50">
+                            <div class="row align-items-center g-3">
+                                <div class="col-lg-6">
+                                    <div class="gallery-img-wrap">
+                                        <img src="~/assets/img/innerpage/package-01.jpg" alt="">
+                                        <a data-fancybox="gallery-01" href="~/assets/img/innerpage/package-01.jpg">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 h-100">
+                                    <div class="row g-3 h-100">
+                                        <div class="col-6">
+                                            <div class="gallery-img-wrap">
+                                                <img src="~/assets/img/innerpage/package-02.jpg" alt="">
+                                                <a data-fancybox="gallery-01" href="~/assets/img/innerpage/package-02.jpg">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="gallery-img-wrap">
+                                                <img src="~/assets/img/innerpage/package-03.jpg" alt="">
+                                                <a data-fancybox="gallery-01" href="~/assets/img/innerpage/package-03.jpg">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="gallery-img-wrap active">
+                                                <img src="~/assets/img/innerpage/package-04.jpg" alt="">
+                                                <button class="StartSlideShowFirstImage"><i class="bi bi-plus-lg"></i> Tüm Fotoğrafları Gör</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="gallery-img-wrap active">
+                                                <img src="~/assets/img/innerpage/package-05.jpg" alt="">
+                                                <a data-fancybox="gallery-01"
+                                                   href="https://www.youtube.com/watch?v=JqtmRCHa8Xo">
+                                                    <i class="bi bi-play-circle"></i> Videoyu İzle
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="others-image-wrap d-none">
+                    <a href="~/assets/img/innerpage/package-01.jpg" data-fancybox="images">
+                        <img src="assets/img/innerpage/blog-grid-img3.jpg" alt="">
+                    </a>
+                    <a href="~/assets/img/innerpage/package-02.jpg" data-fancybox="images">
+                        <img src="assets/img/innerpage/blog-grid-img3.jpg" alt="">
+                    </a>
+                    <a href="~/assets/img/innerpage/package-03.jpg" data-fancybox="images">
+                        <img src="assets/img/innerpage/blog-grid-img3.jpg" alt="">
+                    </a>
+                    <a href="~/assets/img/innerpage/package-04.jpg" data-fancybox="images">
+                        <img src="assets/img/innerpage/blog-grid-img3.jpg" alt="">
+                    </a>
+                    <a href="~/assets/img/innerpage/package-05.jpg" data-fancybox="images">
+                        <img src="assets/img/innerpage/blog-grid-img3.jpg" alt="">
+                    </a>
+                </div>
+
+                <div class="row g-xl-4 gy-5">
+                    
+                   
+
+                    
+                    <div class="col-xl-12">
+                        <form action="/Admin/UpdateTour" method="post">
+                            <input asp-for="Id" value="@Model.Id" type="hidden"/>
+                            <input asp-for="TourUrl" value="@Model.TourUrl" type="hidden" />
+                            <h2> <input class="bg bg-gradient bg-danger w-75" asp-for="Name" value="@Model.Name" /></h2>
+                            <div class="tour-price">
+                                <h3 style="margin-right:-85px" class="w-25"> $<input class="bg bg-gradient bg-success w-50" asp-for="PriceForTwoRoom" value="@Model.PriceForTwoRoom.ToString("0")" />/</h3><span>2 Kişilik Oda</span> <br />
+                                <h3 class="w-25" style="margin-left:35px; margin-right:-85px">$<input class="bg bg-gradient bg-success w-50" asp-for="PriceForThreeRoom" value="@Model.PriceForThreeRoom.ToString("0")" />/</h3><span>3 Kişilik Oda</span>
+
+
+                            </div>
+                            <ul class="tour-info-metalist">
+
+
+                                <ul style="list-style-type: none; padding: 0; font-size: 16px;">
+                                    <li><i class="fas fa-plane-departure" style="color: #1e90ff;"></i> <span>  <span style="color: #555;"><input asp-for="DepartureDate" value="@Model.DepartureDate" class="bg bg-primary w-25" /></span> - <input asp-for="DepartureCity" value="@Model.DepartureCity" class="bg bg-danger w-25" />  <span>&rarr;</span> <input asp-for="DestinationCity" value="@Model.DestinationCity" class="bg bg-warning w-25" /> </span></li>
+                                    <li class="mt-3" ><i class="fas fa-train" style="color: #f39c12;"></i>  <span>  <span style="color: #555;"><input asp-for="IntermediatePassageDate" value="@Model.IntermediatePassageDate" class="bg bg-primary w-25" /></span> - <input asp-for="IntermediatePassageFirstCity" value="@Model.IntermediatePassageFirstCity" class="bg bg-danger w-25" /> <span>&rarr;</span> <input asp-for="IntermediatePassageSecondCity" value="@Model.IntermediatePassageSecondCity" class="bg bg-warning w-25" /> </span></li>
+                                    <li class="mt-3"><i class="fas fa-plane-arrival" style="color: #1e90ff;"></i> <span>   <span style="color: #555;"><input asp-for="ReturningDate" value="@Model.ReturningDate" class="bg bg-primary w-25" /></span> - <input asp-for="ReturningDepartureCity" value="@Model.ReturningDepartureCity" class="bg bg-danger w-25" /> <span>&rarr;</span> <input asp-for="ReturningDestinationCity" value="@Model.ReturningDestinationCity" class="bg bg-warning w-25" /> </span></li>
+                                    <li class="mt-3"><span><i class="fas fa-hotel" style="color: #4b0082;"></i>    <input asp-for="FirstHotel" value="@Model.FirstHotel" class="bg bg-secondary w-25" /> <span class="p-1">&rarr;</span> <input asp-for="SecondHotel" value="@Model.SecondHotel" class="bg bg-secondary w-25" /> </span> </li>
+                                    <li><strong>Ulaşım:</strong> <span> <img style="width:40%" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Turkish_Airlines_logo_2019_compact.svg" /></span>  </li>
+                                </ul>
+
+
+
+                            </ul>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-info" type="button">Kaydet</button>
+                            </div>
+
+                        </form>
+
+                        <p>
+                            Dora Turizm olarak, kutsal Hac yolculuğunuzun her anını özel kılmak amacıyla özenle hazırladığımız bu programa katılmaya davetlisiniz. Programımız, ibadetlerinizi huzur ve güven içinde yerine getirebilmeniz için tüm detaylar düşünülerek tasarlanmıştır.
+
+
+                        </p>
+                        <p>
+                            Bu programda, sabah ve akşam açık büfe yemek hizmeti, Arafat özel çadır konaklaması ve özel otobüs transfer hizmetleri sunulmaktadır. Deneyimli rehberlerimiz eşliğinde, ibadetlerinizi eksiksiz yapmanız için gerekli tüm destek sağlanacaktır.
+
+
+                        </p>
+
+
+                        <h4>Tur Detayı</h4>
+                        <div class="includ-and-exclud-area mb-20">
+                            <ul>
+                                <li>
+                                    <i class="bi bi-check-lg"></i> Sabah ve Akşam Açık Büfe Yemek Hizmeti
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-lg"></i> Arafat Özel Çadır Hizmeti
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-lg"></i> Özel Otobüs Transfer Hizmeti
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+<!-- End Room Details section -->

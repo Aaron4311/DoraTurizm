@@ -1,0 +1,120 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords"
+          content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template" />
+    <meta name="description"
+          content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <!-- Favicon icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.css" rel="stylesheet">
+
+    <link rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="~/Admin/assets/images/favicon.png" />
+    <!-- Custom CSS -->
+    <link href="~/Admin/assets/libs/flot/css/float-chart.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link href="~/Admin/dist/css/style.min.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+
+
+    <!-- Bootstrap CSS -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/css/jquery-ui.css" rel="stylesheet">
+    <!-- Bootstrap Icon CSS -->
+    <link href="~/assets/css/bootstrap-icons.css" rel="stylesheet">
+    <!-- Fontawesome all CSS -->
+    <link href="~/assets/css/all.min.css" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link href="~/assets/css/animate.min.css" rel="stylesheet">
+    <!-- FancyBox CSS -->
+    <link href="~/assets/css/jquery.fancybox.min.css" rel="stylesheet">
+
+    <!-- Fontawesome CSS -->
+    <link href="~/assets/css/fontawesome.min.css" rel="stylesheet">
+    <!-- Swiper slider CSS -->
+    <link rel="stylesheet" href="~/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/assets/css/daterangepicker.css">
+    <!-- Slick slider CSS -->
+    <link rel="stylesheet" href="~/assets/css/slick.css">
+    <link rel="stylesheet" href="~/assets/css/slick-theme.css">
+    <!-- BoxIcon  CSS -->
+    <link href="~/assets/css/boxicons.min.css" rel="stylesheet">
+    <!-- Select2  CSS -->
+    <link href="~/assets/css/select2.css" rel="stylesheet">
+    <link href="~/assets/css/nice-select.css" rel="stylesheet">
+    <!--  Style CSS  -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+
+
+<body>
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+
+    <div id="main-wrapper"
+         data-layout="vertical"
+         data-navbarbg="skin5"
+         data-sidebartype="full"
+         data-sidebar-position="absolute"
+         data-header-position="absolute"
+         data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <partial name="~/Areas/Admin/Views/Shared/_Navbar.cshtml" />
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <partial name="~/Areas/Admin/Views/Shared/_LeftSidebar.cshtml" />
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        @RenderBody()
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>

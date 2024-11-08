@@ -1,0 +1,73 @@
+﻿<aside class="left-sidebar" data-sidebarbg="skin5">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="pt-4">
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                       href="index.html"
+                       aria-expanded="false">
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                       href="/Admin/Tours"
+                       aria-expanded="false">
+                        <i class="fas fa-kaaba"></i>
+
+
+                        <span>Turlar</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                       href="/Admin/AddBlog"
+                       aria-expanded="false">
+                        <i class="mdi mdi-plus"></i>
+                        </i><span class="hide-menu">Blog Ekle</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                       href="/Admin/Mesajlar"
+                       aria-expanded="false">
+                        <i class="mdi mdi-email"></i>
+                        <span class="hide-menu">Mesajlar</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                       href="/"
+                       aria-expanded="false">
+                        <i class="mdi mdi-logout"></i><span class="hide-menu">Siteye Dön</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <form id="LogOutForm" action="/LogOut" method="post">
+                        <a id="LogOutButton" class="sidebar-link waves-effect waves-dark sidebar-link"
+                          
+                           aria-expanded="false">
+                            <i class="mdi mdi-logout"></i><span class="hide-menu">Çıkış Yap</span>
+                        </a>
+                    </form>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>
+
+
+<script>
+    const form = document.querySelector("#LogOutForm");
+    let button = document.querySelector("#LogOutButton");
+    button.addEventListener("click", function () {
+        form.submit();
+    })
+</script>
