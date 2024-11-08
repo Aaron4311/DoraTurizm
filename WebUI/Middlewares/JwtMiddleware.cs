@@ -41,7 +41,7 @@ namespace WebUI.Middlewares
                         var refreshTokenResult = await _authService.RefreshTokenAsync(refreshToken);
 
 
-                        if (refreshTokenResult.Token != null && !string.IsNullOrEmpty(refreshTokenResult.Token))
+                        if (refreshTokenResult != null && refreshTokenResult.Token != null && !string.IsNullOrEmpty(refreshTokenResult.Token))
                         {
                             context.Session.SetString("JWToken", refreshTokenResult.Token);
                             context.Response.Cookies.Append("JWToken", refreshTokenResult.Token, new CookieOptions
