@@ -39,15 +39,9 @@ namespace WebUI.Services.Concrete
 
         public async Task<RefreshTokenResponseDto> RefreshTokenAsync(string refreshToken)
         {
-            // refreshToken'ı JSON formatında göndermek için bir nesne oluşturuyoruz.
             var refreshTokenRequest = new { refreshToken = refreshToken };
-
-            // JSON formatında içerik oluşturuluyor.
             var content = new StringContent(JsonConvert.SerializeObject(refreshTokenRequest), Encoding.UTF8, "application/json");
-
-            // API'ye POST isteği gönderiyoruz.
             var response = await _httpClient.PostAsync($"{_baseApiUrl}/RefreshToken", content);
-
             if (response.IsSuccessStatusCode)
             {
                 var refreshTokenResult = await response.Content.ReadFromJsonAsync<RefreshTokenResponseDto>();
@@ -55,8 +49,6 @@ namespace WebUI.Services.Concrete
                     new AuthenticationHeaderValue("Bearer", refreshTokenResult.Token);
                 return refreshTokenResult;
             }
-
-            // Hata durumunda, hata mesajını döndürüyoruz.
             var errorContent = await response.Content.ReadAsStringAsync();
             Console.WriteLine($"Error Content: {errorContent}");
 
