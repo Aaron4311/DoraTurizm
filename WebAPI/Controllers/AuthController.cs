@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
+using Core.Entities.Dtos;
 using Entity.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -48,15 +50,19 @@ namespace WebAPI.Controllers
 
 
         [HttpPost("RefreshToken")]
-        public async Task<IActionResult> RefreshTokenAsync(string refreshToken)
+        [AllowAnonymous]
+        public async Task<IActionResult> RefreshTokenAsync([FromBody] RefreshTokenDto refreshTokenRequest)
         {
-            var token = await _authService.RenewAccessTokenAsync(refreshToken);
+            var token = await _authService.RenewAccessTokenAsync(refreshTokenRequest.RefreshToken);
             if (!token.IsSuccess)
             {
                 return BadRequest(token.Message);
             }
             return Ok(token.Data);
         }
+
+        
+
 
     }
 }
