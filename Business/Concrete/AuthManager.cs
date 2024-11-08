@@ -51,7 +51,7 @@ namespace Business.Concrete
                 return new ErrorDataResult<AccessToken>(Messages.userDidNotFound);
             }
             var claims = await _userService.GetClaimsAsync(user.Data);
-            var newAccessToken = _tokenHelper.CreateToken(user.Data, claims);
+            var newAccessToken = _tokenHelper.CreateToken(user.Data, claims,true);
 
             return new SuccessDataResult<AccessToken>(newAccessToken, Messages.accessTokenRenewed);
         }
@@ -75,7 +75,7 @@ namespace Business.Concrete
             var accessToken = _tokenHelper.CreateToken(userToCheck.Data, claims);
 
             var refreshToken = _tokenHelper.GenerateRefreshToken();
-            var expiration = DateTime.Now.AddMinutes(60);
+            var expiration = DateTime.Now.AddMinutes(120);
             var refreshTokenEntity = new RefreshToken
             {
                 Token = refreshToken,
