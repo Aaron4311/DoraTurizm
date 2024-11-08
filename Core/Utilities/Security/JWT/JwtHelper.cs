@@ -20,9 +20,9 @@ namespace Core.Utilities.Security.JWT
 
         }
 
-        public AccessToken CreateToken(User user, List<OperationClaim> operationClaims)
+        public AccessToken CreateToken(User user, List<OperationClaim> operationClaims,bool isRefreshToken = false)
         {
-            _expiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
+            _expiration = isRefreshToken == false ? DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration) : DateTime.Now.AddMinutes(120);
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
             var signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
             var jwt = CreateJwtSecurityToken(_tokenOptions, user, signingCredentials, operationClaims);
