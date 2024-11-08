@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Text.Json;
 using WebUI.Models;
 using WebUI.Services.Abstract;
@@ -30,10 +31,38 @@ namespace WebUI.Services.Concrete
                                 await request.Content.ReadAsStreamAsync(),
                                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
                             );
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.Token);
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
                 return authResult;
             }
             return null;
         }
+
+        public async Task<RefreshTokenResponseDto> RefreshTokenAsync(string refreshToken)
+        {
+            // refreshToken'ı JSON formatında göndermek için bir nesne oluşturuyoruz.
+            var refreshTokenRequest = new { refreshToken = refreshToken };
+
+            // JSON formatında içerik oluşturuluyor.
+            var content = new StringContent(JsonConvert.SerializeObject(refreshTokenRequest), Encoding.UTF8, "application/json");
+
+            // API'ye POST isteği gönderiyoruz.
+            var response = await _httpClient.PostAsync($"{_baseApiUrl}/RefreshToken", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var refreshTokenResult = await response.Content.ReadFromJsonAsync<RefreshTokenResponseDto>();
+                _httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", refreshTokenResult.Token);
+                return refreshTokenResult;
+            }
+
+            // Hata durumunda, hata mesajını döndürüyoruz.
+            var errorContent = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Error Content: {errorContent}");
+
+            return null;
+        }
+
+
     }
 }
