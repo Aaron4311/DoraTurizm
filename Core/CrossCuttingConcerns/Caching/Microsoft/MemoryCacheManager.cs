@@ -25,6 +25,7 @@ namespace Core.CrossCuttingConcerns.Caching.Microsoft
         public void Add(string key, object data, int duration)
         {
             _memoryCache.Set(key, data, TimeSpan.FromMinutes(duration));
+            _cacheKeys.Add(key);
         }
 
         public T Get<T>(string key)
