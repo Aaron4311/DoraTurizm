@@ -58,4 +58,6 @@ The project follows a multi-layered architecture, ensuring separation of concern
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE).
+## License
+
+This project is licensed under the [MIT License](./LICENSE.txt).
