@@ -19,6 +19,13 @@ namespace WebUI.Controllers
             return View(tours);
         }
 
+        [HttpGet("Hac-Bilgisi/{url}")]
+        public async Task<IActionResult> PilgrimageInfo(string url)
+        {
+            var tour = await _tourService.GetByUrlAsync(url);
+            return View(tour);
+        }
+
         [HttpGet("hac")]
         public async Task<IActionResult> Pilgrimage()
         {
