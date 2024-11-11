@@ -2,7 +2,9 @@
 *{
     margin:0;
     padding:0;
-    scroll-behavior:smooth
+    scroll-behavior:smooth;
+    
+        
 }
 :root{
     --font-rubik: "Rubik", sans-serif;
@@ -13,23 +15,25 @@
     --black-color: #000;
     --title-color: #100C08;
     --text-color: #787878;
-    --primary-color1: #a68b58;
+/*    --primary-color1: #a68b58;*/
+    --primary-color1: #765205;
     --primary-color1-opc: 99, 171, 69;
     --primary-color2: #a68b58;
     --primary-color2-opc: 251, 176, 59
 }
-html{
-    font-size:100%;
-    scroll-behavior:smooth
+html {
+    font-size: 100%;
+    scroll-behavior: smooth ;
+    font-display: swap !important;
 }
-body{
-    margin:0;
-    padding:0;
-    font-family:var(--font-rubik);
-    color:var(--title-color);
-    font-size:16px;
-    font-weight:400;
-    line-height:30px
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-rubik);
+    color: var(--title-color);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px
 }
 h1,h2,h3,h4,h5,h6{
     font-family:var(--font-rubik);
@@ -5246,13 +5250,20 @@ header.style-3.four .nav-right .icon-list li:first-child svg{
 .home1-banner-area .swiper-slide-active .banner-content-bottom{
     animation:fadeInUp 1.7s
 }
-.home1-banner-area .home1-banner-wrapper{
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-position:center center;
-    border-radius:30px 30px 0 0;
-    position:relative
+.home1-banner-area .home1-banner-wrapper {
+    background-image: linear-gradient(180deg, rgba(16, 12, 8, 0.4) 0%, rgba(16, 12, 8, 0.4) 100%), url('/assets/img/home1/home1-banner-img1.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 30px 30px 0 0;
+    position: relative
 }
+
+.lazy-background.loaded {
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
 .home1-banner-area .home1-banner-wrapper .home1-banner-content{
     text-align:center;
     padding:180px 0;
@@ -6713,7 +6724,7 @@ header.style-3.four .nav-right .icon-list li:first-child svg{
     position:relative
 }
 .franctional-slider-section .slider-content-wrapper{
-    background-image:url(../img/home1/facility-content-bg.png),linear-gradient(180deg,#f1f1f1 0%,#ffe8d3 100%);
+    background-image:url(../img/home1/facility-content-bg.webp),linear-gradient(180deg,#f1f1f1 0%,#ffe8d3 100%);
     background-size:cover;
     background-repeat:no-repeat;
     padding:100px 135px
@@ -7008,7 +7019,7 @@ header.style-3.four .nav-right .icon-list li:first-child svg{
     transition:.5s
 }
 .package-card .package-card-content .card-content-top .location-area .location-list li a{
-    color:#888;
+    color:#575757;
     font-family:var(--font-rubik);
     font-size:12px;
     font-weight:400;
@@ -7252,7 +7263,7 @@ header.style-3.four .nav-right .icon-list li:first-child svg{
     z-index:-1
 }
 .feature-card{
-    background-image:url(../img/home1/feature-card-bg1.png);
+    background-image:url(../img/home1/feature-card-bg1.webp);
     background-size:cover;
     background-repeat:no-repeat;
     background-position:center center;
@@ -7348,7 +7359,7 @@ header.style-3.four .nav-right .icon-list li:first-child svg{
     fill:var(--white-color)
 }
 .feature-card.two{
-    background-image:url(../img/home1/feature-card-bg1.png)
+    background-image:url(../img/home1/feature-card-bg1.webp)
 }
 .feature-card.two .feature-card-icon{
     background-color:#feeed5
@@ -7363,7 +7374,7 @@ header.style-3.four .nav-right .icon-list li:first-child svg{
     fill:var(--white-color)
 }
 .feature-card.three{
-    background-image:url(../img/home1/feature-card-bg1.png)
+    background-image:url(../img/home1/feature-card-bg1.webp)
 }
 .feature-card.three .feature-card-icon{
     background-color:#fff1d6
