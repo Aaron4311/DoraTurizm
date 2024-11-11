@@ -12,7 +12,17 @@ namespace Business.Validation.FluentValidation
     {
         public TourValidator()
         {
-            
+            RuleFor(x => x.FirstHotel).NotEmpty();
+            RuleFor(x => x.SecondHotel).NotEmpty();
+            RuleFor(x => x.DepartureCity).NotEmpty();
+            RuleFor(x => x.DepartureDate).NotEmpty();
+            RuleFor(x => x.DestinationCity).NotEmpty();
+            RuleFor(x => x.TourUrl).NotEmpty();
+            RuleFor(x => x.ReturningDepartureCity).NotEmpty();
+            RuleFor(x => x.ReturningDate).NotEmpty();
+            RuleFor(x => x.ReturningDestinationCity).NotEmpty();
+            RuleFor(x => x.PriceForThreeRoom).NotEmpty();
+            RuleFor(x => x.PriceForThreeRoom).NotEmpty();
         }
     }
 }
