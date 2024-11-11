@@ -112,10 +112,10 @@
                         <form action="/Admin/UpdateTour" method="post">
                             <input asp-for="Id" value="@Model.Id" type="hidden"/>
                             <input asp-for="TourUrl" value="@Model.TourUrl" type="hidden" />
-                            <h2> <input class="bg bg-gradient bg-danger w-75" asp-for="Name" value="@Model.Name" /></h2>
+                            <h2> <input class="bg bg-gradient bg-danger w-75" asp-for="Name" value="@Model.Name" required/></h2>
                             <div class="tour-price">
-                                <h3 style="margin-right:-85px" class="w-25"> $<input class="bg bg-gradient bg-success w-50" asp-for="PriceForTwoRoom" value="@Model.PriceForTwoRoom.ToString("0")" />/</h3><span>2 Kişilik Oda</span> <br />
-                                <h3 class="w-25" style="margin-left:35px; margin-right:-85px">$<input class="bg bg-gradient bg-success w-50" asp-for="PriceForThreeRoom" value="@Model.PriceForThreeRoom.ToString("0")" />/</h3><span>3 Kişilik Oda</span>
+                                <h3 style="margin-right:-85px" class="w-25"> $<input required class="bg bg-gradient bg-success w-50" asp-for="PriceForTwoRoom" value="@Model.PriceForTwoRoom.ToString("0")" />/</h3><span>2 Kişilik Oda</span> <br />
+                                <h3 class="w-25" style="margin-left:35px; margin-right:-85px">$<input required class="bg bg-gradient bg-success w-50" asp-for="PriceForThreeRoom" value="@Model.PriceForThreeRoom.ToString("0")" />/</h3><span>3 Kişilik Oda</span>
 
 
                             </div>
@@ -123,10 +123,10 @@
 
 
                                 <ul style="list-style-type: none; padding: 0; font-size: 16px;">
-                                    <li><i class="fas fa-plane-departure" style="color: #1e90ff;"></i> <span>  <span style="color: #555;"><input asp-for="DepartureDate" value="@Model.DepartureDate" class="bg bg-primary w-25" /></span> - <input asp-for="DepartureCity" value="@Model.DepartureCity" class="bg bg-danger w-25" />  <span>&rarr;</span> <input asp-for="DestinationCity" value="@Model.DestinationCity" class="bg bg-warning w-25" /> </span></li>
-                                    <li class="mt-3" ><i class="fas fa-train" style="color: #f39c12;"></i>  <span>  <span style="color: #555;"><input asp-for="IntermediatePassageDate" value="@Model.IntermediatePassageDate" class="bg bg-primary w-25" /></span> - <input asp-for="IntermediatePassageFirstCity" value="@Model.IntermediatePassageFirstCity" class="bg bg-danger w-25" /> <span>&rarr;</span> <input asp-for="IntermediatePassageSecondCity" value="@Model.IntermediatePassageSecondCity" class="bg bg-warning w-25" /> </span></li>
-                                    <li class="mt-3"><i class="fas fa-plane-arrival" style="color: #1e90ff;"></i> <span>   <span style="color: #555;"><input asp-for="ReturningDate" value="@Model.ReturningDate" class="bg bg-primary w-25" /></span> - <input asp-for="ReturningDepartureCity" value="@Model.ReturningDepartureCity" class="bg bg-danger w-25" /> <span>&rarr;</span> <input asp-for="ReturningDestinationCity" value="@Model.ReturningDestinationCity" class="bg bg-warning w-25" /> </span></li>
-                                    <li class="mt-3"><span><i class="fas fa-hotel" style="color: #4b0082;"></i>    <input asp-for="FirstHotel" value="@Model.FirstHotel" class="bg bg-secondary w-25" /> <span class="p-1">&rarr;</span> <input asp-for="SecondHotel" value="@Model.SecondHotel" class="bg bg-secondary w-25" /> </span> </li>
+                                    <li><i class="fas fa-plane-departure" style="color: #1e90ff;"></i> <span>  <span style="color: #555;"><input required asp-for="DepartureDate" value="@Model.DepartureDate" class="bg bg-primary w-25" /></span> - <input required asp-for="DepartureCity" value="@Model.DepartureCity" class="bg bg-danger w-25" />  <span>&rarr;</span> <input required asp-for="DestinationCity" value="@Model.DestinationCity" class="bg bg-warning w-25" /> </span></li>
+                                    <li class="mt-3" ><i class="fas fa-train" style="color: #f39c12;"></i>  <span>  <span style="color: #555;"><input required asp-for="IntermediatePassageDate" value="@Model.IntermediatePassageDate" class="bg bg-primary w-25" /></span> - <input required asp-for="IntermediatePassageFirstCity" value="@Model.IntermediatePassageFirstCity" class="bg bg-danger w-25" /> <span>&rarr;</span> <input required asp-for="IntermediatePassageSecondCity" value="@Model.IntermediatePassageSecondCity" class="bg bg-warning w-25" /> </span></li>
+                                    <li class="mt-3"><i class="fas fa-plane-arrival" style="color: #1e90ff;"></i> <span>   <span style="color: #555;"><input required asp-for="ReturningDate" value="@Model.ReturningDate" class="bg bg-primary w-25" /></span> - <input required asp-for="ReturningDepartureCity" value="@Model.ReturningDepartureCity" class="bg bg-danger w-25" /> <span>&rarr;</span> <input  required asp-for="ReturningDestinationCity" value="@Model.ReturningDestinationCity" class="bg bg-warning w-25" /> </span></li>
+                                    <li class="mt-3"><span><i class="fas fa-hotel" style="color: #4b0082;"></i>    <input required asp-for="FirstHotel" value="@Model.FirstHotel" class="bg bg-secondary w-25" /> <span class="p-1">&rarr;</span> <input required asp-for="SecondHotel" value="@Model.SecondHotel" class="bg bg-secondary w-25" /> </span> </li>
                                     <li><strong>Ulaşım:</strong> <span> <img style="width:40%" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Turkish_Airlines_logo_2019_compact.svg" /></span>  </li>
                                 </ul>
 

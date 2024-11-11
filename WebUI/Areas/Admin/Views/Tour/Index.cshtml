@@ -76,25 +76,21 @@
     var successMessage = TempData["Success"]?.ToString();
 }
 
-<h1>@successMessage</h1>
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 <script>
-    console.log("test");
+    alertify.set('notifier', 'position', 'top-center');
     @if (successMessage == "Successful")
     {
 
         <text>
-            console.log("Success");
-
             alertify.success("Tur başarıyla Kaydedildi");
         </text>
     }
     else if (successMessage == "Failure")
     {
         <text>
-            console.log("Failure");
             alertify.error("Bir hata oluştu. Lütfen tekrar deneyin.");
         </text>
     }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
