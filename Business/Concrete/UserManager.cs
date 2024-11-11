@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.Validation.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -24,6 +25,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserValidator))]
+        [SecuredOperation("admin")]
         public async Task<IResult> AddAsync(User user)
         {
             await _userDal.AddAsync(user);
