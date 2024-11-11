@@ -38,21 +38,31 @@ namespace WebUI.Middlewares
                     }
                     if (!string.IsNullOrEmpty(refreshToken))
                     {
-                        var refreshTokenResult = await _authService.RefreshTokenAsync(refreshToken);
-
-
-                        if (refreshTokenResult != null && refreshTokenResult.Token != null && !string.IsNullOrEmpty(refreshTokenResult.Token))
+                        try
                         {
-                            context.Session.SetString("JWToken", refreshTokenResult.Token);
-                            context.Response.Cookies.Append("JWToken", refreshTokenResult.Token, new CookieOptions
+                            var refreshTokenResult = await _authService.RefreshTokenAsync(refreshToken);
+                            if (refreshTokenResult != null)
                             {
-                                HttpOnly = true,
-                                Secure = true,
-                                Expires = DateTime.Now.AddDays(30)
-                            });
-                            token = refreshTokenResult.Token;
-                            context.Request.Headers.Append("Authorization", $"Bearer {token}");
+                                if (refreshTokenResult.Token != null && !string.IsNullOrEmpty(refreshTokenResult.Token))
+                                {
+                                    context.Session.SetString("JWToken", refreshTokenResult.Token);
+                                    context.Response.Cookies.Append("JWToken", refreshTokenResult.Token, new CookieOptions
+                                    {
+                                        HttpOnly = true,
+                                        Secure = true,
+                                        Expires = DateTime.Now.AddDays(30)
+                                    });
+                                    token = refreshTokenResult.Token;
+                                    context.Request.Headers.Append("Authorization", $"Bearer {token}");
+                                }
+                            }
                         }
+                        catch (Exception ex)
+                        {
+
+                            throw;
+                        }
+                       
                     }
                 }
                 else
